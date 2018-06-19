@@ -18,3 +18,7 @@ run following comment from client folder
 2) ng server
 
 
+
+you can open page from
+
+localhost:4200
