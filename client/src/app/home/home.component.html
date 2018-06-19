@@ -1,0 +1,31 @@
+<hr>
+<div>
+  <button *ngIf="user === 'abcd'" class='btn btn-primary' routerLink='add-schedule'>Add Schedules </button>
+  <button class='btn btn-primary' (click)='logout()'> Logout</button>
+</div>
+<hr>
+<h4>Schedule List</h4>
+<div>
+  <table class='table' >
+    <thead>
+      <tr>
+        <th scope="col">Sl no</th>
+        <th scoper='col'>Appointment With</th>
+        <th scoper='col'>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr scope='row' *ngFor='let schedule of schedules$ | async;let i = index'>
+        <td scope='col'> {{ i + 1}}</td>
+        <ng-template [ngIf]="user === 'abcd'">
+            <td  scope='col'>{{schedule.appointmentWith}}</td>
+            <td  scope='col'>{{ schedule.time| date:'yyyy-MM-dd HH:mm a':'+5:30'}}</td>
+        </ng-template>
+       <ng-template [ngIf]="user === 'xyz'">
+          <td  scope='col'>{{schedule.scheduler}}</td>
+          <td  scope='col'>{{ schedule.time| date:'yyyy-MM-dd HH:mm a':'-7:00'}}</td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>

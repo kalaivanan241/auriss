@@ -1,0 +1,48 @@
+<h4> Add Schedule</h4> 
+<form #f='ngForm'  class='col-md-4'>
+  <div class="form-group" >
+    <label for="appointmentWith">Schedule With</label>
+    <select 
+      required 
+      class="form-control" 
+      ngModel 
+      name="appointmentWith" 
+      id="appointmentWith" 
+      #appointmentWith='ngModel'
+    >
+      <option value="">Select Option</option>
+      <option value="xyz">xyz</option>
+    </select>
+    <div class='alert alert-danger' *ngIf='appointmentWith.touched && !appointmentWith.valid'>
+        Select the User 
+      </div>
+  </div>
+  <div class="form-group">
+      <label for="time">Date</label>
+      <div class="input-group">
+          <input required class="form-control" ngModel placeholder="yyyy-mm-dd"
+                 name="date" #date='ngModel' ngbDatepicker #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+              <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+            </button>
+          </div>
+        </div>
+        <div class='alert alert-danger' *ngIf='date.touched && !date.valid'>
+          Select the Date 
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="time">Time</label>
+        <div class="input-group">
+            <ngb-timepicker required name='time' ngModel #time='ngModel'></ngb-timepicker>
+          </div>
+          <div class='alert alert-danger' *ngIf='time.touched && !time.valid'>
+              Select the Time 
+          </div>
+          
+      </div>
+      <!-- [disabled]='!f.valid' -->
+    <button class='btn btn-primary'  (click)='submit(f)'> Submit</button>
+    <button class='btn btn-primary' (click)='back()'> Back</button>
+</form>

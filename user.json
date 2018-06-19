@@ -1,0 +1,12 @@
+[
+    {
+        "username": "abcd",
+        "password" : "1234",
+        "timeZone" : "IST"
+    },
+    {
+        "username": "xyz",
+        "password" : "4321",
+        "timeZone" : "PT"
+    }
+]
